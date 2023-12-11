@@ -10,7 +10,7 @@
       "y": 282,
       "index": -1
     },
-    "instruct_llm": {
+    "chat_llm": {
       "x": 12,
       "y": 172,
       "index": 0

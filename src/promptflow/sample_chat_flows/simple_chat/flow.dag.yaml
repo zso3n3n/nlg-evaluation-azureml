@@ -18,14 +18,13 @@ outputs:
     type: string
     reference: ${instruct_llm.output}
 nodes:
-- name: instruct_llm
+- name: chat_llm
   type: llm
   source:
     type: code
     path: instruct_llm.jinja2
   inputs:
-    deployment_name: gpt35t-instruct
-    suffix: ""
+    deployment_name: gpt35-turbo
     max_tokens: 50
     temperature: 0
     top_p: 1
@@ -37,6 +36,6 @@ nodes:
     input: ${inputs.input}
   provider: AzureOpenAI
   connection: aoai-connection
-  api: completion
+  api: chat
   module: promptflow.tools.aoai
   use_variants: false

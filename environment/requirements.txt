@@ -7,3 +7,4 @@ numpy
 matplotlib
 plotly
 python-dotenv
+keyrings.alt
