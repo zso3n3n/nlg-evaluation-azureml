@@ -1,6 +1,6 @@
 promptflow 
 promptflow-tools
-azure-search-documents==11.4.0b10
+azure-ai-ml
 azure-ai-contentsafety
 pandas
 numpy

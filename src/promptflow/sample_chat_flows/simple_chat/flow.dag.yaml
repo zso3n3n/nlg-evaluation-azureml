@@ -7,22 +7,17 @@ inputs:
     type: string
     is_chat_input: true
     is_chat_history: false
-    default: How do I change the oil on my car?
-  chat_history:
-    type: list
-    default: []
-    is_chat_history: true
-    is_chat_input: false
+    default: What could I do on a vacation in Croatia?
 outputs:
   output:
     type: string
-    reference: ${instruct_llm.output}
+    reference: ${simple_chat.output}
 nodes:
-- name: chat_llm
+- name: simple_chat
   type: llm
   source:
     type: code
-    path: instruct_llm.jinja2
+    path: simplechat_prompt.jinja2
   inputs:
     deployment_name: gpt35-turbo
     max_tokens: 50

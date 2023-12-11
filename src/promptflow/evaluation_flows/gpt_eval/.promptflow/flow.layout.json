@@ -1,0 +1,15 @@
+{
+  "nodeLayouts": {
+    "inputs": {
+      "x": 12,
+      "y": 62,
+      "index": -1
+    },
+    "outputs": {
+      "x": 12,
+      "y": 172,
+      "index": -1
+    }
+  },
+  "orientation": "Vertical"
+}

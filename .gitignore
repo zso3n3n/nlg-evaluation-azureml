@@ -1,6 +1,12 @@
 # dot env file
 .env
 
+#vs code extensions
+.vscode/
+
+#promptflow dot files
+.promptflow/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

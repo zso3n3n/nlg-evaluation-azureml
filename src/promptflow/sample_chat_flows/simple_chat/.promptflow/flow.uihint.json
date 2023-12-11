@@ -1,0 +1,11 @@
+{
+  "nodes": {
+    "chat_llm": {
+      "variant_0": {
+        "inputs": {
+          "input": []
+        }
+      }
+    }
+  }
+}

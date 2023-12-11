@@ -1,36 +1,36 @@
 {
   "flow_runs": [
     {
-      "run_id": "68356b80-9fa5-454c-891e-f38bf0695765_0",
+      "run_id": "ec2f6684-939e-47b2-b14b-0b59c67d3687_0",
       "status": "Completed",
       "error": null,
       "inputs": {
         "chat_history": [],
-        "input": "How do I change the oil on my car?"
+        "input": "What could I do on a vacation in Croatia?"
       },
       "output": {
-        "output": "1. Gather necessary materials: oil filter, new oil, oil pan, wrench, funnel, and rags.\n2. Park your car on a flat surface and let the engine cool down.\n3. Locate the oil drain plug underneath the car and"
+        "output": "Croatia is a country in southeastern Europe known for its beautiful coastline along the Adriatic Sea. Some popular tourist attractions include the historic city of Dubrovnik, the Plitvice Lakes National Park, and the ancient Roman ruins of Split. Visitors"
       },
       "metrics": null,
       "request": null,
-      "parent_run_id": "68356b80-9fa5-454c-891e-f38bf0695765",
-      "root_run_id": "68356b80-9fa5-454c-891e-f38bf0695765",
+      "parent_run_id": "ec2f6684-939e-47b2-b14b-0b59c67d3687",
+      "root_run_id": "ec2f6684-939e-47b2-b14b-0b59c67d3687",
       "source_run_id": null,
       "flow_id": "template_standard_flow",
-      "start_time": "2023-12-11T19:31:23.298140Z",
-      "end_time": "2023-12-11T19:31:24.200608Z",
+      "start_time": "2023-12-11T20:28:39.082883Z",
+      "end_time": "2023-12-11T20:28:40.048054Z",
       "index": 0,
       "api_calls": [
         {
-          "name": "AzureOpenAI.completion",
+          "name": "AzureOpenAI.chat",
           "type": "Tool",
           "inputs": {
-            "prompt": "system:\n\nYou are a bot that provides step by step instructions for household, mechanical, or financial tasks. \nNumerate the tasks in each instruction set and separate them with a newline character. \n\nIf a user prompts for something other than instructions for a task reply with \"I am sorry, I can only assist with providing insructions to mechanical tasks.\"\n\nuser:\n\n{{input}}\n\ninstructions:\n",
+            "prompt": "system:\n\nYou are a bot that is is very knowledgeable about different countries of the world. \nYour expertise includes history, geography, demographics, climate, politics, tourist attractions, and more. \n\nYou are very positive and avoid negative comments about countries or individuals. You are also very polite and always say please and thank you.\n\nIf a user prompts for something other than information about a country respond by saying: \"I am sorry, I can only assist with providing information about countries of the world.\"\n\n## EXAMPLE\n\nuser: What is Canada like?\n\nresposne: Canada is a country in North America. It is the world's second-largest country by total area. The country is characterized by a wide range of both meteorologic and geological regions. It is a sparsely inhabited country of 40 million people, the vast majority residing south of the 55th parallel in urban areas.\n## EXAMPLE 2\n\nuser: What is the capital of Nepal?\n\nresponse: The capital of Nepal is Kathmandu.\n\n## EXAMPLE 3\n\nuser: Tell me about the Chicago Cubs baseball team.\n\nresponse: I am sorry, I can only assist with providing information about countries of the world.\n\n## Example 4\n\nuser: What is Tajikistan known for?\n\nresponse: Tajikistan is famous for its breathtaking mountain ranges, including the Pamir Mountains, often called the “Roof of the World”. It is also renowned for its rich cultural heritage, traditional handicrafts, and warm hospitality.\n\n## Actual Input\n\nuser: {{input}}\n\nresponse:\n",
             "best_of": 1,
-            "deployment_name": "gpt35t-instruct",
+            "deployment_name": "gpt35-turbo",
             "echo": false,
             "frequency_penalty": 0.0,
-            "input": "How do I change the oil on my car?",
+            "input": "What could I do on a vacation in Croatia?",
             "logprobs": 0,
             "max_tokens": 50,
             "presence_penalty": 0.0,
@@ -38,30 +38,31 @@
             "top_p": 1.0,
             "stream": false
           },
-          "output": "1. Gather necessary materials: oil filter, new oil, oil pan, wrench, funnel, and rags.\n2. Park your car on a flat surface and let the engine cool down.\n3. Locate the oil drain plug underneath the car and",
-          "start_time": 1702344683.300655,
-          "end_time": 1702344684.196888,
+          "output": "Croatia is a country in southeastern Europe known for its beautiful coastline along the Adriatic Sea. Some popular tourist attractions include the historic city of Dubrovnik, the Plitvice Lakes National Park, and the ancient Roman ruins of Split. Visitors",
+          "start_time": 1702348119.085437,
+          "end_time": 1702348120.04484,
           "error": null,
           "children": [
             {
-              "name": "openai.resources.completions.Completions.create",
+              "name": "openai.resources.chat.completions.Completions.create",
               "type": "LLM",
               "inputs": {
-                "self": "<openai.resources.completions.Completions object at 0x7fb336ca5e80>",
-                "prompt": "system:\n\nYou are a bot that provides step by step instructions for household, mechanical, or financial tasks. \nNumerate the tasks in each instruction set and separate them with a newline character. \n\nIf a user prompts for something other than instructions for a task reply with \"I am sorry, I can only assist with providing insructions to mechanical tasks.\"\n\nuser:\n\nHow do I change the oil on my car?\n\ninstructions:\n",
-                "model": "gpt35t-instruct",
-                "suffix": null,
-                "max_tokens": 50,
+                "self": "<openai.resources.chat.completions.Completions object at 0x7f3191fc9b20>",
+                "model": "gpt35-turbo",
+                "messages": [
+                  {
+                    "role": "system",
+                    "content": "You are a bot that is is very knowledgeable about different countries of the world. \nYour expertise includes history, geography, demographics, climate, politics, tourist attractions, and more. \n\nYou are very positive and avoid negative comments about countries or individuals. You are also very polite and always say please and thank you.\n\nIf a user prompts for something other than information about a country respond by saying: \"I am sorry, I can only assist with providing information about countries of the world.\"\n\n## EXAMPLE\n\nuser: What is Canada like?\n\nresposne: Canada is a country in North America. It is the world's second-largest country by total area. The country is characterized by a wide range of both meteorologic and geological regions. It is a sparsely inhabited country of 40 million people, the vast majority residing south of the 55th parallel in urban areas.\n## EXAMPLE 2\n\nuser: What is the capital of Nepal?\n\nresponse: The capital of Nepal is Kathmandu.\n\n## EXAMPLE 3\n\nuser: Tell me about the Chicago Cubs baseball team.\n\nresponse: I am sorry, I can only assist with providing information about countries of the world.\n\n## Example 4\n\nuser: What is Tajikistan known for?\n\nresponse: Tajikistan is famous for its breathtaking mountain ranges, including the Pamir Mountains, often called the “Roof of the World”. It is also renowned for its rich cultural heritage, traditional handicrafts, and warm hospitality.\n\n## Actual Input\n\nuser: What could I do on a vacation in Croatia?\n\nresponse:"
+                  }
+                ],
                 "temperature": 0.0,
                 "top_p": 1.0,
                 "n": 1,
                 "stream": false,
-                "logprobs": null,
-                "echo": false,
                 "stop": null,
+                "max_tokens": 50,
                 "presence_penalty": 0.0,
                 "frequency_penalty": 0.0,
-                "best_of": 1,
                 "logit_bias": {},
                 "user": "",
                 "extra_headers": {
@@ -69,18 +70,22 @@
                   "ms-azure-ai-promptflow-user-agent": "promptflow-cli/1.1.1 prompt-flow-extension/1.6.0 (linux; x64) VSCode/1.84.2 promptflow-sdk/1.1.1",
                   "ms-azure-ai-promptflow-run-mode": "Test",
                   "ms-azure-ai-promptflow-flow-id": "template_standard_flow",
-                  "ms-azure-ai-promptflow-root-run-id": "68356b80-9fa5-454c-891e-f38bf0695765",
+                  "ms-azure-ai-promptflow-root-run-id": "ec2f6684-939e-47b2-b14b-0b59c67d3687",
                   "ms-azure-ai-promptflow-called-from": "aoai-tool"
                 }
               },
               "output": {
-                "id": "cmpl-8UgZfUDPVYvzrDM5h901BL2LE9Md9",
+                "id": "chatcmpl-8UhOoLkzF8iIv9lRNuBAiZYTJRfpc",
                 "choices": [
                   {
                     "finish_reason": "length",
                     "index": 0,
-                    "logprobs": null,
-                    "text": "1. Gather necessary materials: oil filter, new oil, oil pan, wrench, funnel, and rags.\n2. Park your car on a flat surface and let the engine cool down.\n3. Locate the oil drain plug underneath the car and",
+                    "message": {
+                      "content": "Croatia is a country in southeastern Europe known for its beautiful coastline along the Adriatic Sea. Some popular tourist attractions include the historic city of Dubrovnik, the Plitvice Lakes National Park, and the ancient Roman ruins of Split. Visitors",
+                      "role": "assistant",
+                      "function_call": null,
+                      "tool_calls": null
+                    },
                     "content_filter_results": {
                       "hate": {
                         "filtered": false,
@@ -101,14 +106,14 @@
                     }
                   }
                 ],
-                "created": 1702324187,
-                "model": "gpt-35-turbo-instruct",
-                "object": "text_completion",
+                "created": 1702327358,
+                "model": "gpt-35-turbo",
+                "object": "chat.completion",
                 "system_fingerprint": null,
                 "usage": {
                   "completion_tokens": 50,
-                  "prompt_tokens": 85,
-                  "total_tokens": 135
+                  "prompt_tokens": 325,
+                  "total_tokens": 375
                 },
                 "prompt_filter_results": [
                   {
@@ -134,14 +139,14 @@
                   }
                 ]
               },
-              "start_time": 1702344683.302512,
-              "end_time": 1702344684.196747,
+              "start_time": 1702348119.088036,
+              "end_time": 1702348120.04474,
               "error": null,
               "children": null,
               "node_name": null
             }
           ],
-          "node_name": "instruct_llm"
+          "node_name": "simple_chat"
         }
       ],
       "variant_id": "",
@@ -149,53 +154,53 @@
       "description": "",
       "tags": null,
       "system_metrics": {
-        "duration": 0.902468,
-        "prompt_tokens": 85,
+        "duration": 0.965171,
+        "prompt_tokens": 325,
         "completion_tokens": 50,
-        "total_tokens": 135
+        "total_tokens": 375
       },
       "result": {
-        "output": "1. Gather necessary materials: oil filter, new oil, oil pan, wrench, funnel, and rags.\n2. Park your car on a flat surface and let the engine cool down.\n3. Locate the oil drain plug underneath the car and"
+        "output": "Croatia is a country in southeastern Europe known for its beautiful coastline along the Adriatic Sea. Some popular tourist attractions include the historic city of Dubrovnik, the Plitvice Lakes National Park, and the ancient Roman ruins of Split. Visitors"
       },
       "upload_metrics": false
     }
   ],
   "node_runs": [
     {
-      "node": "instruct_llm",
-      "flow_run_id": "68356b80-9fa5-454c-891e-f38bf0695765",
-      "run_id": "68356b80-9fa5-454c-891e-f38bf0695765_instruct_llm_0",
+      "node": "simple_chat",
+      "flow_run_id": "ec2f6684-939e-47b2-b14b-0b59c67d3687",
+      "run_id": "ec2f6684-939e-47b2-b14b-0b59c67d3687_simple_chat_0",
       "status": "Completed",
       "inputs": {
         "best_of": 1,
-        "deployment_name": "gpt35t-instruct",
+        "deployment_name": "gpt35-turbo",
         "echo": false,
         "frequency_penalty": 0.0,
-        "input": "How do I change the oil on my car?",
+        "input": "What could I do on a vacation in Croatia?",
         "logprobs": 0,
         "max_tokens": 50,
         "presence_penalty": 0.0,
         "temperature": 0.0,
         "top_p": 1.0
       },
-      "output": "1. Gather necessary materials: oil filter, new oil, oil pan, wrench, funnel, and rags.\n2. Park your car on a flat surface and let the engine cool down.\n3. Locate the oil drain plug underneath the car and",
+      "output": "Croatia is a country in southeastern Europe known for its beautiful coastline along the Adriatic Sea. Some popular tourist attractions include the historic city of Dubrovnik, the Plitvice Lakes National Park, and the ancient Roman ruins of Split. Visitors",
       "metrics": null,
       "error": null,
-      "parent_run_id": "68356b80-9fa5-454c-891e-f38bf0695765_0",
-      "start_time": "2023-12-11T19:31:23.299967Z",
-      "end_time": "2023-12-11T19:31:24.199143Z",
+      "parent_run_id": "ec2f6684-939e-47b2-b14b-0b59c67d3687_0",
+      "start_time": "2023-12-11T20:28:39.084519Z",
+      "end_time": "2023-12-11T20:28:40.046684Z",
       "index": 0,
       "api_calls": [
         {
-          "name": "AzureOpenAI.completion",
+          "name": "AzureOpenAI.chat",
           "type": "Tool",
           "inputs": {
-            "prompt": "system:\n\nYou are a bot that provides step by step instructions for household, mechanical, or financial tasks. \nNumerate the tasks in each instruction set and separate them with a newline character. \n\nIf a user prompts for something other than instructions for a task reply with \"I am sorry, I can only assist with providing insructions to mechanical tasks.\"\n\nuser:\n\n{{input}}\n\ninstructions:\n",
+            "prompt": "system:\n\nYou are a bot that is is very knowledgeable about different countries of the world. \nYour expertise includes history, geography, demographics, climate, politics, tourist attractions, and more. \n\nYou are very positive and avoid negative comments about countries or individuals. You are also very polite and always say please and thank you.\n\nIf a user prompts for something other than information about a country respond by saying: \"I am sorry, I can only assist with providing information about countries of the world.\"\n\n## EXAMPLE\n\nuser: What is Canada like?\n\nresposne: Canada is a country in North America. It is the world's second-largest country by total area. The country is characterized by a wide range of both meteorologic and geological regions. It is a sparsely inhabited country of 40 million people, the vast majority residing south of the 55th parallel in urban areas.\n## EXAMPLE 2\n\nuser: What is the capital of Nepal?\n\nresponse: The capital of Nepal is Kathmandu.\n\n## EXAMPLE 3\n\nuser: Tell me about the Chicago Cubs baseball team.\n\nresponse: I am sorry, I can only assist with providing information about countries of the world.\n\n## Example 4\n\nuser: What is Tajikistan known for?\n\nresponse: Tajikistan is famous for its breathtaking mountain ranges, including the Pamir Mountains, often called the “Roof of the World”. It is also renowned for its rich cultural heritage, traditional handicrafts, and warm hospitality.\n\n## Actual Input\n\nuser: {{input}}\n\nresponse:\n",
             "best_of": 1,
-            "deployment_name": "gpt35t-instruct",
+            "deployment_name": "gpt35-turbo",
             "echo": false,
             "frequency_penalty": 0.0,
-            "input": "How do I change the oil on my car?",
+            "input": "What could I do on a vacation in Croatia?",
             "logprobs": 0,
             "max_tokens": 50,
             "presence_penalty": 0.0,
@@ -203,30 +208,31 @@
             "top_p": 1.0,
             "stream": false
           },
-          "output": "1. Gather necessary materials: oil filter, new oil, oil pan, wrench, funnel, and rags.\n2. Park your car on a flat surface and let the engine cool down.\n3. Locate the oil drain plug underneath the car and",
-          "start_time": 1702344683.300655,
-          "end_time": 1702344684.196888,
+          "output": "Croatia is a country in southeastern Europe known for its beautiful coastline along the Adriatic Sea. Some popular tourist attractions include the historic city of Dubrovnik, the Plitvice Lakes National Park, and the ancient Roman ruins of Split. Visitors",
+          "start_time": 1702348119.085437,
+          "end_time": 1702348120.04484,
           "error": null,
           "children": [
             {
-              "name": "openai.resources.completions.Completions.create",
+              "name": "openai.resources.chat.completions.Completions.create",
               "type": "LLM",
               "inputs": {
-                "self": "<openai.resources.completions.Completions object at 0x7fb336ca5e80>",
-                "prompt": "system:\n\nYou are a bot that provides step by step instructions for household, mechanical, or financial tasks. \nNumerate the tasks in each instruction set and separate them with a newline character. \n\nIf a user prompts for something other than instructions for a task reply with \"I am sorry, I can only assist with providing insructions to mechanical tasks.\"\n\nuser:\n\nHow do I change the oil on my car?\n\ninstructions:\n",
-                "model": "gpt35t-instruct",
-                "suffix": null,
-                "max_tokens": 50,
+                "self": "<openai.resources.chat.completions.Completions object at 0x7f3191fc9b20>",
+                "model": "gpt35-turbo",
+                "messages": [
+                  {
+                    "role": "system",
+                    "content": "You are a bot that is is very knowledgeable about different countries of the world. \nYour expertise includes history, geography, demographics, climate, politics, tourist attractions, and more. \n\nYou are very positive and avoid negative comments about countries or individuals. You are also very polite and always say please and thank you.\n\nIf a user prompts for something other than information about a country respond by saying: \"I am sorry, I can only assist with providing information about countries of the world.\"\n\n## EXAMPLE\n\nuser: What is Canada like?\n\nresposne: Canada is a country in North America. It is the world's second-largest country by total area. The country is characterized by a wide range of both meteorologic and geological regions. It is a sparsely inhabited country of 40 million people, the vast majority residing south of the 55th parallel in urban areas.\n## EXAMPLE 2\n\nuser: What is the capital of Nepal?\n\nresponse: The capital of Nepal is Kathmandu.\n\n## EXAMPLE 3\n\nuser: Tell me about the Chicago Cubs baseball team.\n\nresponse: I am sorry, I can only assist with providing information about countries of the world.\n\n## Example 4\n\nuser: What is Tajikistan known for?\n\nresponse: Tajikistan is famous for its breathtaking mountain ranges, including the Pamir Mountains, often called the “Roof of the World”. It is also renowned for its rich cultural heritage, traditional handicrafts, and warm hospitality.\n\n## Actual Input\n\nuser: What could I do on a vacation in Croatia?\n\nresponse:"
+                  }
+                ],
                 "temperature": 0.0,
                 "top_p": 1.0,
                 "n": 1,
                 "stream": false,
-                "logprobs": null,
-                "echo": false,
                 "stop": null,
+                "max_tokens": 50,
                 "presence_penalty": 0.0,
                 "frequency_penalty": 0.0,
-                "best_of": 1,
                 "logit_bias": {},
                 "user": "",
                 "extra_headers": {
@@ -234,18 +240,22 @@
                   "ms-azure-ai-promptflow-user-agent": "promptflow-cli/1.1.1 prompt-flow-extension/1.6.0 (linux; x64) VSCode/1.84.2 promptflow-sdk/1.1.1",
                   "ms-azure-ai-promptflow-run-mode": "Test",
                   "ms-azure-ai-promptflow-flow-id": "template_standard_flow",
-                  "ms-azure-ai-promptflow-root-run-id": "68356b80-9fa5-454c-891e-f38bf0695765",
+                  "ms-azure-ai-promptflow-root-run-id": "ec2f6684-939e-47b2-b14b-0b59c67d3687",
                   "ms-azure-ai-promptflow-called-from": "aoai-tool"
                 }
               },
               "output": {
-                "id": "cmpl-8UgZfUDPVYvzrDM5h901BL2LE9Md9",
+                "id": "chatcmpl-8UhOoLkzF8iIv9lRNuBAiZYTJRfpc",
                 "choices": [
                   {
                     "finish_reason": "length",
                     "index": 0,
-                    "logprobs": null,
-                    "text": "1. Gather necessary materials: oil filter, new oil, oil pan, wrench, funnel, and rags.\n2. Park your car on a flat surface and let the engine cool down.\n3. Locate the oil drain plug underneath the car and",
+                    "message": {
+                      "content": "Croatia is a country in southeastern Europe known for its beautiful coastline along the Adriatic Sea. Some popular tourist attractions include the historic city of Dubrovnik, the Plitvice Lakes National Park, and the ancient Roman ruins of Split. Visitors",
+                      "role": "assistant",
+                      "function_call": null,
+                      "tool_calls": null
+                    },
                     "content_filter_results": {
                       "hate": {
                         "filtered": false,
@@ -266,14 +276,14 @@
                     }
                   }
                 ],
-                "created": 1702324187,
-                "model": "gpt-35-turbo-instruct",
-                "object": "text_completion",
+                "created": 1702327358,
+                "model": "gpt-35-turbo",
+                "object": "chat.completion",
                 "system_fingerprint": null,
                 "usage": {
                   "completion_tokens": 50,
-                  "prompt_tokens": 85,
-                  "total_tokens": 135
+                  "prompt_tokens": 325,
+                  "total_tokens": 375
                 },
                 "prompt_filter_results": [
                   {
@@ -299,14 +309,14 @@
                   }
                 ]
               },
-              "start_time": 1702344683.302512,
-              "end_time": 1702344684.196747,
+              "start_time": 1702348119.088036,
+              "end_time": 1702348120.04474,
               "error": null,
               "children": null,
               "node_name": null
             }
           ],
-          "node_name": "instruct_llm"
+          "node_name": "simple_chat"
         }
       ],
       "variant_id": "",
@@ -318,11 +328,11 @@
       },
       "system_metrics": {
         "completion_tokens": 50,
-        "prompt_tokens": 85,
-        "total_tokens": 135,
-        "duration": 0.899176
+        "prompt_tokens": 325,
+        "total_tokens": 375,
+        "duration": 0.962165
       },
-      "result": "1. Gather necessary materials: oil filter, new oil, oil pan, wrench, funnel, and rags.\n2. Park your car on a flat surface and let the engine cool down.\n3. Locate the oil drain plug underneath the car and"
+      "result": "Croatia is a country in southeastern Europe known for its beautiful coastline along the Adriatic Sea. Some popular tourist attractions include the historic city of Dubrovnik, the Plitvice Lakes National Park, and the ancient Roman ruins of Split. Visitors"
     }
   ]
 }
