@@ -1,7 +1,7 @@
 # dot env file
 .env
 
-#vs code extensions
+#vs code
 .vscode/
 
 #promptflow dot files
