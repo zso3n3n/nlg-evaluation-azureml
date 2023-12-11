@@ -1,0 +1,42 @@
+id: template_standard_flow
+name: Template Standard Flow
+environment:
+  python_requirements_txt: requirements.txt
+inputs:
+  input:
+    type: string
+    is_chat_input: true
+    is_chat_history: false
+    default: How do I change the oil on my car?
+  chat_history:
+    type: list
+    default: []
+    is_chat_history: true
+    is_chat_input: false
+outputs:
+  output:
+    type: string
+    reference: ${instruct_llm.output}
+nodes:
+- name: instruct_llm
+  type: llm
+  source:
+    type: code
+    path: instruct_llm.jinja2
+  inputs:
+    deployment_name: gpt35t-instruct
+    suffix: ""
+    max_tokens: 50
+    temperature: 0
+    top_p: 1
+    logprobs: 0
+    echo: false
+    presence_penalty: 0
+    frequency_penalty: 0
+    best_of: 1
+    input: ${inputs.input}
+  provider: AzureOpenAI
+  connection: aoai-connection
+  api: completion
+  module: promptflow.tools.aoai
+  use_variants: false

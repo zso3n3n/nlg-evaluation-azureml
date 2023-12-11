@@ -1,0 +1,16 @@
+{
+  "package": {},
+  "code": {
+    "instruct_llm.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "input": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "instruct_llm.jinja2"
+    }
+  }
+}
