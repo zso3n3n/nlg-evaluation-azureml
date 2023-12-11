@@ -1,0 +1,9 @@
+inputs:
+  response:
+    type: string
+    default: The what on tree short is open seasame.
+  prompt:
+    type: string
+    default: Tell me about the country of Panama?
+outputs: {}
+nodes: []
