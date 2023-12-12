@@ -1,4 +1,16 @@
 {
   "package": {},
-  "code": {}
+  "code": {
+    "simplechat_prompt.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "input": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "simplechat_prompt.jinja2"
+    }
+  }
 }
