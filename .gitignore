@@ -1,10 +1,10 @@
 # dot env file
 .env
 
-#vs code
+#vs code folder
 .vscode/
 
-#promptflow dot files
+#promptflow dot folder
 .promptflow/
 
 # Byte-compiled / optimized / DLL files
