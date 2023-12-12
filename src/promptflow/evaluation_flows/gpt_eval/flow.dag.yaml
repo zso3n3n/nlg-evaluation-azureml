@@ -5,7 +5,10 @@ inputs:
   question:
     type: string
     default: What in the capital of the USA?
-outputs: {}
+outputs:
+  output:
+    type: string
+    reference: ${concat_scores.output}
 nodes:
 - name: fluency_llm
   type: llm
@@ -41,13 +44,22 @@ nodes:
     question: ${inputs.question}
   connection: aoai-connection
   api: chat
+- name: concat_scores
+  type: python
+  source:
+    type: code
+    path: concat_scores.py
+  inputs:
+    coherence: ${coherence_llm.output}
+    relevance: ${relevence_llm.output}
+    fluency: ${fluency_llm.output}
+    question: ${inputs.question}
+    response: ${inputs.response}
 - name: write_results
   type: python
   source:
     type: code
     path: write_results.py
   inputs:
-    coherence: ${coherence_llm.output}
-    relevence: ${relevence_llm.output}
-    fluency: ${fluency_llm.output}
+    results: ${concat_scores.output}
   aggregation: true

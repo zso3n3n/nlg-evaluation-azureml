@@ -27,7 +27,19 @@
         "inputs": {
           "coherence": [],
           "relevence": [],
-          "fluency": []
+          "fluency": [],
+          "results": []
+        }
+      }
+    },
+    "concat_scores": {
+      "variant_0": {
+        "inputs": {
+          "coherence": [],
+          "relevance": [],
+          "fluency": [],
+          "question": [],
+          "response": []
         }
       }
     }
