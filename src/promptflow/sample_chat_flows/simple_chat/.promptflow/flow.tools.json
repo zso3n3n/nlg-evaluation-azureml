@@ -11,6 +11,17 @@
         }
       },
       "source": "simplechat_prompt.jinja2"
+    },
+    "simple_chat_prompt.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "input": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "simple_chat_prompt.jinja2"
     }
   }
 }

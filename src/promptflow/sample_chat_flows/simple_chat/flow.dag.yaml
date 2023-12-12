@@ -17,10 +17,10 @@ nodes:
   type: llm
   source:
     type: code
-    path: simplechat_prompt.jinja2
+    path: simple_chat_prompt.jinja2
   inputs:
-    deployment_name: gpt35-turbo
-    max_tokens: 50
+    deployment_name: aoai-gpt4
+    max_tokens: 100
     temperature: 0
     top_p: 1
     logprobs: 0

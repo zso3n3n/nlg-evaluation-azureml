@@ -1,9 +1,53 @@
 inputs:
   response:
     type: string
-    default: The what on tree short is open seasame.
-  prompt:
+    default: The capital of the United States of America is Washingotn D.C.
+  question:
     type: string
-    default: Tell me about the country of Panama?
+    default: What in the capital of the USA?
 outputs: {}
-nodes: []
+nodes:
+- name: fluency_llm
+  type: llm
+  source:
+    type: code
+    path: ../../components/fluency.jinja2
+  inputs:
+    deployment_name: aoai-gpt4
+    answer: ${inputs.response}
+    max_tokens: 50
+  connection: aoai-connection
+  api: chat
+- name: coherence_llm
+  type: llm
+  source:
+    type: code
+    path: ../../components/coherence.jinja2
+  inputs:
+    deployment_name: aoai-gpt4
+    max_tokens: 50
+    answer: ${inputs.response}
+  connection: aoai-connection
+  api: chat
+- name: relevence_llm
+  type: llm
+  source:
+    type: code
+    path: ../../components/relevance.jinja2
+  inputs:
+    deployment_name: aoai-gpt4
+    max_tokens: 50
+    answer: ${inputs.response}
+    question: ${inputs.question}
+  connection: aoai-connection
+  api: chat
+- name: write_results
+  type: python
+  source:
+    type: code
+    path: write_results.py
+  inputs:
+    coherence: ${coherence_llm.output}
+    relevence: ${relevence_llm.output}
+    fluency: ${fluency_llm.output}
+  aggregation: true

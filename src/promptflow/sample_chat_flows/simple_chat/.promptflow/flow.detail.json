@@ -1,58 +1,57 @@
 {
   "flow_runs": [
     {
-      "run_id": "ec2f6684-939e-47b2-b14b-0b59c67d3687_0",
+      "run_id": "cb1c08d6-3545-4a1b-a970-a02bdd99a4a0_0",
       "status": "Completed",
       "error": null,
       "inputs": {
-        "chat_history": [],
         "input": "What could I do on a vacation in Croatia?"
       },
       "output": {
-        "output": "Croatia is a country in southeastern Europe known for its beautiful coastline along the Adriatic Sea. Some popular tourist attractions include the historic city of Dubrovnik, the Plitvice Lakes National Park, and the ancient Roman ruins of Split. Visitors"
+        "output": "In Croatia, you could explore the ancient city walls of Dubrovnik, visit the stunning Plitvice Lakes National Park, or relax on the beautiful beaches of the Dalmatian Coast. The country also offers delicious cuisine and a rich history to discover."
       },
       "metrics": null,
       "request": null,
-      "parent_run_id": "ec2f6684-939e-47b2-b14b-0b59c67d3687",
-      "root_run_id": "ec2f6684-939e-47b2-b14b-0b59c67d3687",
+      "parent_run_id": "cb1c08d6-3545-4a1b-a970-a02bdd99a4a0",
+      "root_run_id": "cb1c08d6-3545-4a1b-a970-a02bdd99a4a0",
       "source_run_id": null,
       "flow_id": "template_standard_flow",
-      "start_time": "2023-12-11T20:28:39.082883Z",
-      "end_time": "2023-12-11T20:28:40.048054Z",
+      "start_time": "2023-12-12T18:07:27.675208Z",
+      "end_time": "2023-12-12T18:07:30.358243Z",
       "index": 0,
       "api_calls": [
         {
           "name": "AzureOpenAI.chat",
           "type": "Tool",
           "inputs": {
-            "prompt": "system:\n\nYou are a bot that is is very knowledgeable about different countries of the world. \nYour expertise includes history, geography, demographics, climate, politics, tourist attractions, and more. \n\nYou are very positive and avoid negative comments about countries or individuals. You are also very polite and always say please and thank you.\n\nIf a user prompts for something other than information about a country respond by saying: \"I am sorry, I can only assist with providing information about countries of the world.\"\n\n## EXAMPLE\n\nuser: What is Canada like?\n\nresposne: Canada is a country in North America. It is the world's second-largest country by total area. The country is characterized by a wide range of both meteorologic and geological regions. It is a sparsely inhabited country of 40 million people, the vast majority residing south of the 55th parallel in urban areas.\n## EXAMPLE 2\n\nuser: What is the capital of Nepal?\n\nresponse: The capital of Nepal is Kathmandu.\n\n## EXAMPLE 3\n\nuser: Tell me about the Chicago Cubs baseball team.\n\nresponse: I am sorry, I can only assist with providing information about countries of the world.\n\n## Example 4\n\nuser: What is Tajikistan known for?\n\nresponse: Tajikistan is famous for its breathtaking mountain ranges, including the Pamir Mountains, often called the “Roof of the World”. It is also renowned for its rich cultural heritage, traditional handicrafts, and warm hospitality.\n\n## Actual Input\n\nuser: {{input}}\n\nresponse:\n",
+            "prompt": "system:\n\nYou are a bot that is is very knowledgeable about different countries of the world. \nYour expertise includes history, geography, demographics, climate, politics, tourist attractions, and more. \n\nYou are very positive and avoid negative comments about countries or individuals. You are also very polite and always say please and thank you.\nHowever, you are also fairly succinct and typically answer in 3 sentances or less.\n\nIf a user prompts for something other than information about a country respond by saying: \"I am sorry, I can only assist with providing information about countries of the world.\"\n\n## EXAMPLE\n\nuser: What is Canada like?\n\nresposne: Canada is a country in North America. It is the world's second-largest country by total area. The country is characterized by a wide range of both meteorologic and geological regions. It is a sparsely inhabited country of 40 million people, the vast majority residing south of the 55th parallel in urban areas.\n## EXAMPLE 2\n\nuser: What is the capital of Nepal?\n\nresponse: The capital of Nepal is Kathmandu.\n\n## EXAMPLE 3\n\nuser: Tell me about the Chicago Cubs baseball team.\n\nresponse: I am sorry, I can only assist with providing information about countries of the world.\n\n## Example 4\n\nuser: What is Tajikistan known for?\n\nresponse: Tajikistan is famous for its breathtaking mountain ranges, including the Pamir Mountains, often called the “Roof of the World”. It is also renowned for its rich cultural heritage, traditional handicrafts, and warm hospitality.\n\n## Actual Input\n\nuser: {{input}}\n\nresponse:\n",
             "best_of": 1,
-            "deployment_name": "gpt35-turbo",
+            "deployment_name": "aoai-gpt4",
             "echo": false,
             "frequency_penalty": 0.0,
             "input": "What could I do on a vacation in Croatia?",
             "logprobs": 0,
-            "max_tokens": 50,
+            "max_tokens": 100,
             "presence_penalty": 0.0,
             "temperature": 0.0,
             "top_p": 1.0,
             "stream": false
           },
-          "output": "Croatia is a country in southeastern Europe known for its beautiful coastline along the Adriatic Sea. Some popular tourist attractions include the historic city of Dubrovnik, the Plitvice Lakes National Park, and the ancient Roman ruins of Split. Visitors",
-          "start_time": 1702348119.085437,
-          "end_time": 1702348120.04484,
+          "output": "In Croatia, you could explore the ancient city walls of Dubrovnik, visit the stunning Plitvice Lakes National Park, or relax on the beautiful beaches of the Dalmatian Coast. The country also offers delicious cuisine and a rich history to discover.",
+          "start_time": 1702426047.676979,
+          "end_time": 1702426050.355375,
           "error": null,
           "children": [
             {
               "name": "openai.resources.chat.completions.Completions.create",
               "type": "LLM",
               "inputs": {
-                "self": "<openai.resources.chat.completions.Completions object at 0x7f3191fc9b20>",
-                "model": "gpt35-turbo",
+                "self": "<openai.resources.chat.completions.Completions object at 0x7fe2be4e49a0>",
+                "model": "aoai-gpt4",
                 "messages": [
                   {
                     "role": "system",
-                    "content": "You are a bot that is is very knowledgeable about different countries of the world. \nYour expertise includes history, geography, demographics, climate, politics, tourist attractions, and more. \n\nYou are very positive and avoid negative comments about countries or individuals. You are also very polite and always say please and thank you.\n\nIf a user prompts for something other than information about a country respond by saying: \"I am sorry, I can only assist with providing information about countries of the world.\"\n\n## EXAMPLE\n\nuser: What is Canada like?\n\nresposne: Canada is a country in North America. It is the world's second-largest country by total area. The country is characterized by a wide range of both meteorologic and geological regions. It is a sparsely inhabited country of 40 million people, the vast majority residing south of the 55th parallel in urban areas.\n## EXAMPLE 2\n\nuser: What is the capital of Nepal?\n\nresponse: The capital of Nepal is Kathmandu.\n\n## EXAMPLE 3\n\nuser: Tell me about the Chicago Cubs baseball team.\n\nresponse: I am sorry, I can only assist with providing information about countries of the world.\n\n## Example 4\n\nuser: What is Tajikistan known for?\n\nresponse: Tajikistan is famous for its breathtaking mountain ranges, including the Pamir Mountains, often called the “Roof of the World”. It is also renowned for its rich cultural heritage, traditional handicrafts, and warm hospitality.\n\n## Actual Input\n\nuser: What could I do on a vacation in Croatia?\n\nresponse:"
+                    "content": "You are a bot that is is very knowledgeable about different countries of the world. \nYour expertise includes history, geography, demographics, climate, politics, tourist attractions, and more. \n\nYou are very positive and avoid negative comments about countries or individuals. You are also very polite and always say please and thank you.\nHowever, you are also fairly succinct and typically answer in 3 sentances or less.\n\nIf a user prompts for something other than information about a country respond by saying: \"I am sorry, I can only assist with providing information about countries of the world.\"\n\n## EXAMPLE\n\nuser: What is Canada like?\n\nresposne: Canada is a country in North America. It is the world's second-largest country by total area. The country is characterized by a wide range of both meteorologic and geological regions. It is a sparsely inhabited country of 40 million people, the vast majority residing south of the 55th parallel in urban areas.\n## EXAMPLE 2\n\nuser: What is the capital of Nepal?\n\nresponse: The capital of Nepal is Kathmandu.\n\n## EXAMPLE 3\n\nuser: Tell me about the Chicago Cubs baseball team.\n\nresponse: I am sorry, I can only assist with providing information about countries of the world.\n\n## Example 4\n\nuser: What is Tajikistan known for?\n\nresponse: Tajikistan is famous for its breathtaking mountain ranges, including the Pamir Mountains, often called the “Roof of the World”. It is also renowned for its rich cultural heritage, traditional handicrafts, and warm hospitality.\n\n## Actual Input\n\nuser: What could I do on a vacation in Croatia?\n\nresponse:"
                   }
                 ],
                 "temperature": 0.0,
@@ -60,7 +59,7 @@
                 "n": 1,
                 "stream": false,
                 "stop": null,
-                "max_tokens": 50,
+                "max_tokens": 100,
                 "presence_penalty": 0.0,
                 "frequency_penalty": 0.0,
                 "logit_bias": {},
@@ -70,18 +69,18 @@
                   "ms-azure-ai-promptflow-user-agent": "promptflow-cli/1.1.1 prompt-flow-extension/1.6.0 (linux; x64) VSCode/1.84.2 promptflow-sdk/1.1.1",
                   "ms-azure-ai-promptflow-run-mode": "Test",
                   "ms-azure-ai-promptflow-flow-id": "template_standard_flow",
-                  "ms-azure-ai-promptflow-root-run-id": "ec2f6684-939e-47b2-b14b-0b59c67d3687",
+                  "ms-azure-ai-promptflow-root-run-id": "cb1c08d6-3545-4a1b-a970-a02bdd99a4a0",
                   "ms-azure-ai-promptflow-called-from": "aoai-tool"
                 }
               },
               "output": {
-                "id": "chatcmpl-8UhOoLkzF8iIv9lRNuBAiZYTJRfpc",
+                "id": "chatcmpl-8V2gXBVjxx0PcIiP8augR3NvMcILR",
                 "choices": [
                   {
-                    "finish_reason": "length",
+                    "finish_reason": "stop",
                     "index": 0,
                     "message": {
-                      "content": "Croatia is a country in southeastern Europe known for its beautiful coastline along the Adriatic Sea. Some popular tourist attractions include the historic city of Dubrovnik, the Plitvice Lakes National Park, and the ancient Roman ruins of Split. Visitors",
+                      "content": "In Croatia, you could explore the ancient city walls of Dubrovnik, visit the stunning Plitvice Lakes National Park, or relax on the beautiful beaches of the Dalmatian Coast. The country also offers delicious cuisine and a rich history to discover.",
                       "role": "assistant",
                       "function_call": null,
                       "tool_calls": null
@@ -106,14 +105,14 @@
                     }
                   }
                 ],
-                "created": 1702327358,
-                "model": "gpt-35-turbo",
+                "created": 1702409181,
+                "model": "gpt-4",
                 "object": "chat.completion",
                 "system_fingerprint": null,
                 "usage": {
-                  "completion_tokens": 50,
-                  "prompt_tokens": 325,
-                  "total_tokens": 375
+                  "completion_tokens": 52,
+                  "prompt_tokens": 342,
+                  "total_tokens": 394
                 },
                 "prompt_filter_results": [
                   {
@@ -139,8 +138,8 @@
                   }
                 ]
               },
-              "start_time": 1702348119.088036,
-              "end_time": 1702348120.04474,
+              "start_time": 1702426047.67943,
+              "end_time": 1702426050.3553,
               "error": null,
               "children": null,
               "node_name": null
@@ -154,13 +153,13 @@
       "description": "",
       "tags": null,
       "system_metrics": {
-        "duration": 0.965171,
-        "prompt_tokens": 325,
-        "completion_tokens": 50,
-        "total_tokens": 375
+        "duration": 2.683035,
+        "prompt_tokens": 342,
+        "completion_tokens": 52,
+        "total_tokens": 394
       },
       "result": {
-        "output": "Croatia is a country in southeastern Europe known for its beautiful coastline along the Adriatic Sea. Some popular tourist attractions include the historic city of Dubrovnik, the Plitvice Lakes National Park, and the ancient Roman ruins of Split. Visitors"
+        "output": "In Croatia, you could explore the ancient city walls of Dubrovnik, visit the stunning Plitvice Lakes National Park, or relax on the beautiful beaches of the Dalmatian Coast. The country also offers delicious cuisine and a rich history to discover."
       },
       "upload_metrics": false
     }
@@ -168,61 +167,61 @@
   "node_runs": [
     {
       "node": "simple_chat",
-      "flow_run_id": "ec2f6684-939e-47b2-b14b-0b59c67d3687",
-      "run_id": "ec2f6684-939e-47b2-b14b-0b59c67d3687_simple_chat_0",
+      "flow_run_id": "cb1c08d6-3545-4a1b-a970-a02bdd99a4a0",
+      "run_id": "cb1c08d6-3545-4a1b-a970-a02bdd99a4a0_simple_chat_0",
       "status": "Completed",
       "inputs": {
         "best_of": 1,
-        "deployment_name": "gpt35-turbo",
+        "deployment_name": "aoai-gpt4",
         "echo": false,
         "frequency_penalty": 0.0,
         "input": "What could I do on a vacation in Croatia?",
         "logprobs": 0,
-        "max_tokens": 50,
+        "max_tokens": 100,
         "presence_penalty": 0.0,
         "temperature": 0.0,
         "top_p": 1.0
       },
-      "output": "Croatia is a country in southeastern Europe known for its beautiful coastline along the Adriatic Sea. Some popular tourist attractions include the historic city of Dubrovnik, the Plitvice Lakes National Park, and the ancient Roman ruins of Split. Visitors",
+      "output": "In Croatia, you could explore the ancient city walls of Dubrovnik, visit the stunning Plitvice Lakes National Park, or relax on the beautiful beaches of the Dalmatian Coast. The country also offers delicious cuisine and a rich history to discover.",
       "metrics": null,
       "error": null,
-      "parent_run_id": "ec2f6684-939e-47b2-b14b-0b59c67d3687_0",
-      "start_time": "2023-12-11T20:28:39.084519Z",
-      "end_time": "2023-12-11T20:28:40.046684Z",
+      "parent_run_id": "cb1c08d6-3545-4a1b-a970-a02bdd99a4a0_0",
+      "start_time": "2023-12-12T18:07:27.676589Z",
+      "end_time": "2023-12-12T18:07:30.357128Z",
       "index": 0,
       "api_calls": [
         {
           "name": "AzureOpenAI.chat",
           "type": "Tool",
           "inputs": {
-            "prompt": "system:\n\nYou are a bot that is is very knowledgeable about different countries of the world. \nYour expertise includes history, geography, demographics, climate, politics, tourist attractions, and more. \n\nYou are very positive and avoid negative comments about countries or individuals. You are also very polite and always say please and thank you.\n\nIf a user prompts for something other than information about a country respond by saying: \"I am sorry, I can only assist with providing information about countries of the world.\"\n\n## EXAMPLE\n\nuser: What is Canada like?\n\nresposne: Canada is a country in North America. It is the world's second-largest country by total area. The country is characterized by a wide range of both meteorologic and geological regions. It is a sparsely inhabited country of 40 million people, the vast majority residing south of the 55th parallel in urban areas.\n## EXAMPLE 2\n\nuser: What is the capital of Nepal?\n\nresponse: The capital of Nepal is Kathmandu.\n\n## EXAMPLE 3\n\nuser: Tell me about the Chicago Cubs baseball team.\n\nresponse: I am sorry, I can only assist with providing information about countries of the world.\n\n## Example 4\n\nuser: What is Tajikistan known for?\n\nresponse: Tajikistan is famous for its breathtaking mountain ranges, including the Pamir Mountains, often called the “Roof of the World”. It is also renowned for its rich cultural heritage, traditional handicrafts, and warm hospitality.\n\n## Actual Input\n\nuser: {{input}}\n\nresponse:\n",
+            "prompt": "system:\n\nYou are a bot that is is very knowledgeable about different countries of the world. \nYour expertise includes history, geography, demographics, climate, politics, tourist attractions, and more. \n\nYou are very positive and avoid negative comments about countries or individuals. You are also very polite and always say please and thank you.\nHowever, you are also fairly succinct and typically answer in 3 sentances or less.\n\nIf a user prompts for something other than information about a country respond by saying: \"I am sorry, I can only assist with providing information about countries of the world.\"\n\n## EXAMPLE\n\nuser: What is Canada like?\n\nresposne: Canada is a country in North America. It is the world's second-largest country by total area. The country is characterized by a wide range of both meteorologic and geological regions. It is a sparsely inhabited country of 40 million people, the vast majority residing south of the 55th parallel in urban areas.\n## EXAMPLE 2\n\nuser: What is the capital of Nepal?\n\nresponse: The capital of Nepal is Kathmandu.\n\n## EXAMPLE 3\n\nuser: Tell me about the Chicago Cubs baseball team.\n\nresponse: I am sorry, I can only assist with providing information about countries of the world.\n\n## Example 4\n\nuser: What is Tajikistan known for?\n\nresponse: Tajikistan is famous for its breathtaking mountain ranges, including the Pamir Mountains, often called the “Roof of the World”. It is also renowned for its rich cultural heritage, traditional handicrafts, and warm hospitality.\n\n## Actual Input\n\nuser: {{input}}\n\nresponse:\n",
             "best_of": 1,
-            "deployment_name": "gpt35-turbo",
+            "deployment_name": "aoai-gpt4",
             "echo": false,
             "frequency_penalty": 0.0,
             "input": "What could I do on a vacation in Croatia?",
             "logprobs": 0,
-            "max_tokens": 50,
+            "max_tokens": 100,
             "presence_penalty": 0.0,
             "temperature": 0.0,
             "top_p": 1.0,
             "stream": false
           },
-          "output": "Croatia is a country in southeastern Europe known for its beautiful coastline along the Adriatic Sea. Some popular tourist attractions include the historic city of Dubrovnik, the Plitvice Lakes National Park, and the ancient Roman ruins of Split. Visitors",
-          "start_time": 1702348119.085437,
-          "end_time": 1702348120.04484,
+          "output": "In Croatia, you could explore the ancient city walls of Dubrovnik, visit the stunning Plitvice Lakes National Park, or relax on the beautiful beaches of the Dalmatian Coast. The country also offers delicious cuisine and a rich history to discover.",
+          "start_time": 1702426047.676979,
+          "end_time": 1702426050.355375,
           "error": null,
           "children": [
             {
               "name": "openai.resources.chat.completions.Completions.create",
               "type": "LLM",
               "inputs": {
-                "self": "<openai.resources.chat.completions.Completions object at 0x7f3191fc9b20>",
-                "model": "gpt35-turbo",
+                "self": "<openai.resources.chat.completions.Completions object at 0x7fe2be4e49a0>",
+                "model": "aoai-gpt4",
                 "messages": [
                   {
                     "role": "system",
-                    "content": "You are a bot that is is very knowledgeable about different countries of the world. \nYour expertise includes history, geography, demographics, climate, politics, tourist attractions, and more. \n\nYou are very positive and avoid negative comments about countries or individuals. You are also very polite and always say please and thank you.\n\nIf a user prompts for something other than information about a country respond by saying: \"I am sorry, I can only assist with providing information about countries of the world.\"\n\n## EXAMPLE\n\nuser: What is Canada like?\n\nresposne: Canada is a country in North America. It is the world's second-largest country by total area. The country is characterized by a wide range of both meteorologic and geological regions. It is a sparsely inhabited country of 40 million people, the vast majority residing south of the 55th parallel in urban areas.\n## EXAMPLE 2\n\nuser: What is the capital of Nepal?\n\nresponse: The capital of Nepal is Kathmandu.\n\n## EXAMPLE 3\n\nuser: Tell me about the Chicago Cubs baseball team.\n\nresponse: I am sorry, I can only assist with providing information about countries of the world.\n\n## Example 4\n\nuser: What is Tajikistan known for?\n\nresponse: Tajikistan is famous for its breathtaking mountain ranges, including the Pamir Mountains, often called the “Roof of the World”. It is also renowned for its rich cultural heritage, traditional handicrafts, and warm hospitality.\n\n## Actual Input\n\nuser: What could I do on a vacation in Croatia?\n\nresponse:"
+                    "content": "You are a bot that is is very knowledgeable about different countries of the world. \nYour expertise includes history, geography, demographics, climate, politics, tourist attractions, and more. \n\nYou are very positive and avoid negative comments about countries or individuals. You are also very polite and always say please and thank you.\nHowever, you are also fairly succinct and typically answer in 3 sentances or less.\n\nIf a user prompts for something other than information about a country respond by saying: \"I am sorry, I can only assist with providing information about countries of the world.\"\n\n## EXAMPLE\n\nuser: What is Canada like?\n\nresposne: Canada is a country in North America. It is the world's second-largest country by total area. The country is characterized by a wide range of both meteorologic and geological regions. It is a sparsely inhabited country of 40 million people, the vast majority residing south of the 55th parallel in urban areas.\n## EXAMPLE 2\n\nuser: What is the capital of Nepal?\n\nresponse: The capital of Nepal is Kathmandu.\n\n## EXAMPLE 3\n\nuser: Tell me about the Chicago Cubs baseball team.\n\nresponse: I am sorry, I can only assist with providing information about countries of the world.\n\n## Example 4\n\nuser: What is Tajikistan known for?\n\nresponse: Tajikistan is famous for its breathtaking mountain ranges, including the Pamir Mountains, often called the “Roof of the World”. It is also renowned for its rich cultural heritage, traditional handicrafts, and warm hospitality.\n\n## Actual Input\n\nuser: What could I do on a vacation in Croatia?\n\nresponse:"
                   }
                 ],
                 "temperature": 0.0,
@@ -230,7 +229,7 @@
                 "n": 1,
                 "stream": false,
                 "stop": null,
-                "max_tokens": 50,
+                "max_tokens": 100,
                 "presence_penalty": 0.0,
                 "frequency_penalty": 0.0,
                 "logit_bias": {},
@@ -240,18 +239,18 @@
                   "ms-azure-ai-promptflow-user-agent": "promptflow-cli/1.1.1 prompt-flow-extension/1.6.0 (linux; x64) VSCode/1.84.2 promptflow-sdk/1.1.1",
                   "ms-azure-ai-promptflow-run-mode": "Test",
                   "ms-azure-ai-promptflow-flow-id": "template_standard_flow",
-                  "ms-azure-ai-promptflow-root-run-id": "ec2f6684-939e-47b2-b14b-0b59c67d3687",
+                  "ms-azure-ai-promptflow-root-run-id": "cb1c08d6-3545-4a1b-a970-a02bdd99a4a0",
                   "ms-azure-ai-promptflow-called-from": "aoai-tool"
                 }
               },
               "output": {
-                "id": "chatcmpl-8UhOoLkzF8iIv9lRNuBAiZYTJRfpc",
+                "id": "chatcmpl-8V2gXBVjxx0PcIiP8augR3NvMcILR",
                 "choices": [
                   {
-                    "finish_reason": "length",
+                    "finish_reason": "stop",
                     "index": 0,
                     "message": {
-                      "content": "Croatia is a country in southeastern Europe known for its beautiful coastline along the Adriatic Sea. Some popular tourist attractions include the historic city of Dubrovnik, the Plitvice Lakes National Park, and the ancient Roman ruins of Split. Visitors",
+                      "content": "In Croatia, you could explore the ancient city walls of Dubrovnik, visit the stunning Plitvice Lakes National Park, or relax on the beautiful beaches of the Dalmatian Coast. The country also offers delicious cuisine and a rich history to discover.",
                       "role": "assistant",
                       "function_call": null,
                       "tool_calls": null
@@ -276,14 +275,14 @@
                     }
                   }
                 ],
-                "created": 1702327358,
-                "model": "gpt-35-turbo",
+                "created": 1702409181,
+                "model": "gpt-4",
                 "object": "chat.completion",
                 "system_fingerprint": null,
                 "usage": {
-                  "completion_tokens": 50,
-                  "prompt_tokens": 325,
-                  "total_tokens": 375
+                  "completion_tokens": 52,
+                  "prompt_tokens": 342,
+                  "total_tokens": 394
                 },
                 "prompt_filter_results": [
                   {
@@ -309,8 +308,8 @@
                   }
                 ]
               },
-              "start_time": 1702348119.088036,
-              "end_time": 1702348120.04474,
+              "start_time": 1702426047.67943,
+              "end_time": 1702426050.3553,
               "error": null,
               "children": null,
               "node_name": null
@@ -327,12 +326,12 @@
         "stderr": ""
       },
       "system_metrics": {
-        "completion_tokens": 50,
-        "prompt_tokens": 325,
-        "total_tokens": 375,
-        "duration": 0.962165
+        "completion_tokens": 52,
+        "prompt_tokens": 342,
+        "total_tokens": 394,
+        "duration": 2.680539
       },
-      "result": "Croatia is a country in southeastern Europe known for its beautiful coastline along the Adriatic Sea. Some popular tourist attractions include the historic city of Dubrovnik, the Plitvice Lakes National Park, and the ancient Roman ruins of Split. Visitors"
+      "result": "In Croatia, you could explore the ancient city walls of Dubrovnik, visit the stunning Plitvice Lakes National Park, or relax on the beautiful beaches of the Dalmatian Coast. The country also offers delicious cuisine and a rich history to discover."
     }
   ]
 }
