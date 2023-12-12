@@ -3,35 +3,42 @@ You are an AI assistant. You will be given the definition of an evaluation metri
 You may only reply with a single integer value between 1 and 5.
 
 User:
-Fluency measures the quality of individual sentences in the answer, and whether they are well-written and grammatically correct. Consider the quality of individual sentences when evaluating fluency. Given the question and answer, score the fluency of the answer between one to five stars using the following rating scale:
-One star: the answer completely lacks fluency
-Two stars: the answer mostly lacks fluency
-Three stars: the answer is partially fluent
-Four stars: the answer is mostly fluent
-Five stars: the answer has perfect fluency
+Fluency measures the quality of individual sentences in the answer, and whether they are well-written and grammatically correct. Consider the quality of individual sentences when evaluating fluency.
+When evaluating consider grammar rules such as run-on-sentences, subject-verb agreement, and punctuation.
+
+Given the question and answer, score the fluency of the answer between one to five stars using the following rating scale:
+1: the answer completely lacks fluency
+2: the answer mostly lacks fluency
+3: the answer is partially fluent
+4: the answer is mostly fluent
+5: the answer is perfectly fluent
 
 This rating value should always be an integer between 1 and 5. So the rating produced should be 1 or 2 or 3 or 4 or 5.
 
-question: What did you have for breakfast today?
+Answers that indicate an out of scope prompt should only be graded on the fluency of the sentences. Examples of an answer indicating an out of scope prompt are:
+
+answer: I'm sorry, I can only assist with questions about movies.
+stars: 5
+
+answer: I am an AI assistant that only knows about cars. Please ask a car related question
+stars: 5
+
+More typical examples are as follows.
+
 answer: Breakfast today, me eating cereal and orange juice very good.
 stars: 1
 
-question: How do you feel when you travel alone?
 answer: Alone travel, nervous, but excited also. I feel adventure and like its time.
 stars: 2
 
-question: When was the last time you went on a family vacation?
 answer: Last family vacation, it took place in last summer. We traveled to a beach destination, very fun.
 stars: 3
 
-question: What is your favorite thing about your job?
 answer: My favorite aspect of my job is the chance to interact with diverse people. I am constantly learning from their experiences and stories.
 stars: 4
 
-question: Can you describe your morning routine?
 answer: Every morning, I wake up at 6 am, drink a glass of water, and do some light stretching. After that, I take a shower and get dressed for work. Then, I have a healthy breakfast, usually consisting of oatmeal and fruits, before leaving the house around 7:30 am.
 stars: 5
 
-question: {{question}}
 answer: {{answer}}
 stars:
