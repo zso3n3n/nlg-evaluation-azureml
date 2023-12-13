@@ -7,7 +7,7 @@ inputs:
   expert_annotations:
     type: list
     default:
-    - coherence: 5
+    - coherence: 1
       consistency: 5
       fluency: 5
       relevance: 2
@@ -15,7 +15,7 @@ inputs:
       consistency: 5
       fluency: 5
       relevance: 3
-    - coherence: 4
+    - coherence: 1
       consistency: 5
       fluency: 5
       relevance: 3

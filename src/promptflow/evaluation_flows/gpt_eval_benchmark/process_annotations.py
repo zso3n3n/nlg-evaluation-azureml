@@ -9,20 +9,14 @@ from typing import List
 def process_annotations(expert: List[dict], turker: List[dict]) -> dict:
     expert_coherence = 0
     turker_coherence = 0
-    for i in expert:
-        expert_coherence += i['coherence']
+    for e in expert:
+        expert_coherence += e['coherence']
 
-    for i in turker:
-        turker_coherence += i['coherence']
+    for t in turker:
+        turker_coherence += t['coherence']
     
-    output_json = {'expert': round(expert_coherence / len(expert),0),
-                   'turk': round(turker_coherence / len(turker),0)
+    output_json = {'expert': round(expert_coherence/3, 0),
+                   'turk': round(turker_coherence/5, 0)
                    }
     
     return output_json
-
-
-if __name__ == "main":
-    annotations = "[{\"coherence\": 5, \"consistency\": 5, \"fluency\": 5, \"relevance\": 2}, {\"coherence\": 5, \"consistency\": 5, \"fluency\": 5, \"relevance\": 3}, {\"coherence\": 4, \"consistency\": 5, \"fluency\": 5, \"relevance\": 3}], \"turker_annotations\": [{\"coherence\": 2, \"consistency\": 2, \"fluency\": 1, \"relevance\": 2}, {\"coherence\": 5, \"consistency\": 4, \"fluency\": 5, \"relevance\": 3}, {\"coherence\": 4, \"consistency\": 1, \"fluency\": 5, \"relevance\": 1}, {\"coherence\": 3, \"consistency\": 4, \"fluency\": 4, \"relevance\": 3}, {\"coherence\": 4, \"consistency\": 4, \"fluency\": 4, \"relevance\": 4}]"
-    result = process_annotations(annotations)
-    print(result)

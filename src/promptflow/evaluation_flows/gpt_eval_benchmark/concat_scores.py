@@ -7,8 +7,8 @@ from promptflow import tool
 def concat_scores(response: str, coherence: str,coherence_w_emotion: str, human_coherence: dict) -> dict:
 
     output_json = {'response': response,
-                   'gpt_coherence': coherence,
-                   'gpt_coherence_w_emotion': coherence_w_emotion,
+                   'gpt_coherence': int(coherence),
+                   'gpt_coherence_w_emotion': int(coherence_w_emotion),
                    'expert_coherence': human_coherence['expert'],
                    'turker_coherence': human_coherence['turk']
                    }
