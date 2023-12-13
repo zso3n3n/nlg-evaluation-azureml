@@ -1,0 +1,47 @@
+{
+  "nodes": {
+    "fluency_llm": {
+      "variant_0": {
+        "inputs": {
+          "answer": []
+        }
+      }
+    },
+    "coherence_llm": {
+      "variant_0": {
+        "inputs": {
+          "answer": []
+        }
+      }
+    },
+    "relevence_llm": {
+      "variant_0": {
+        "inputs": {
+          "answer": [],
+          "question": []
+        }
+      }
+    },
+    "write_results": {
+      "variant_0": {
+        "inputs": {
+          "coherence": [],
+          "relevence": [],
+          "fluency": [],
+          "results": []
+        }
+      }
+    },
+    "concat_scores": {
+      "variant_0": {
+        "inputs": {
+          "coherence": [],
+          "relevance": [],
+          "fluency": [],
+          "question": [],
+          "response": []
+        }
+      }
+    }
+  }
+}

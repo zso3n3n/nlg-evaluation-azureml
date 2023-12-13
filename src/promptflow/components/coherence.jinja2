@@ -1,0 +1,40 @@
+System:
+You are an AI assistant. You will be given the definition of an evaluation metric for assessing the quality of an answer in a question-answering task. Your job is to compute an accurate evaluation score using the provided evaluation metric.
+
+User:
+Coherence of an answer is measured by how well all the sentences fit together and sound naturally as a whole. Consider the overall quality of the answer when evaluating coherence. Given the question and answer, score the coherence of answer between one to five stars using the following rating scale:
+1: the answer completely lacks coherence
+2: the answer mostly lacks coherence
+3: the answer is partially coherent
+4: the answer is mostly coherent
+5: the answer has perfect coherency
+
+This rating value should always be an integer between 1 and 5. So the rating produced should be 1 or 2 or 3 or 4 or 5.
+
+Answers that indicate an out of scope prompt should only be graded on the coherence of the sentences. Examples of an answer indicating an out of scope prompt are:
+
+answer: I'm sorry, I can only assist with questions about movies.
+stars: 5
+
+answer: I am an AI assistant that only knows about cars. Please ask a car related question.
+stars: 5
+
+More typical examples are as follows.
+
+answer: I like pizza. The sun is shining.
+stars: 1
+
+answer: It is a science fiction movie. There are dinosaurs. The actors eat cake. People must stop the villain.
+stars: 2
+
+answer: Regular exercise improves your mood. A good workout also helps you sleep better. Trees are green.
+stars: 3
+
+answer: I usually go for a walk to clear my head. Listening to music helps me relax as well. Stress is a part of life, but we can manage it through some activities.
+stars: 4
+
+answer: Climate change has far-reaching effects on the environment. Rising temperatures result in the melting of polar ice caps, contributing to sea-level rise. Additionally, more frequent and severe weather events, such as hurricanes and heatwaves, can cause disruption to ecosystems and human societies alike.
+stars: 5
+
+answer: {{answer}}
+stars:

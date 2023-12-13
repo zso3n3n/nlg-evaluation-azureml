@@ -1,0 +1,65 @@
+inputs:
+  response:
+    type: string
+    default: The capital of the United States of America is Washingotn D.C.
+  question:
+    type: string
+    default: What in the capital of the USA?
+outputs:
+  output:
+    type: string
+    reference: ${concat_scores.output}
+nodes:
+- name: fluency_llm
+  type: llm
+  source:
+    type: code
+    path: ../../components/fluency.jinja2
+  inputs:
+    deployment_name: aoai-gpt4
+    answer: ${inputs.response}
+    max_tokens: 50
+  connection: aoai-connection
+  api: chat
+- name: coherence_llm
+  type: llm
+  source:
+    type: code
+    path: ../../components/coherence.jinja2
+  inputs:
+    deployment_name: aoai-gpt4
+    max_tokens: 50
+    answer: ${inputs.response}
+  connection: aoai-connection
+  api: chat
+- name: relevence_llm
+  type: llm
+  source:
+    type: code
+    path: ../../components/relevance.jinja2
+  inputs:
+    deployment_name: aoai-gpt4
+    max_tokens: 50
+    answer: ${inputs.response}
+    question: ${inputs.question}
+  connection: aoai-connection
+  api: chat
+- name: concat_scores
+  type: python
+  source:
+    type: code
+    path: concat_scores.py
+  inputs:
+    coherence: ${coherence_llm.output}
+    relevance: ${relevence_llm.output}
+    fluency: ${fluency_llm.output}
+    question: ${inputs.question}
+    response: ${inputs.response}
+- name: write_results
+  type: python
+  source:
+    type: code
+    path: write_results.py
+  inputs:
+    results: ${concat_scores.output}
+  aggregation: true

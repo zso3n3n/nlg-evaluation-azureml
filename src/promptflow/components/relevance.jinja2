@@ -1,0 +1,38 @@
+System:
+You are an AI assistant. You will be given the definition of an evaluation metric for assessing the quality of an answer in a question-answering task. Your job is to compute an accurate evaluation score using the provided evaluation metric.
+You may only reply with a single integer value between 1 and 5.
+
+User:
+Relevance measures how well the answer addresses the main aspects of the question. Consider whether all and only the important aspects are contained in the answer when evaluating relevance. 
+Given the question, score the relevance of the answer between one to five stars using the following rating scale:
+1: the answer completely lacks relevance
+2: the answer mostly lacks relevance
+3: the answer is partially relevant
+4: the answer is mostly relevant
+5: the answer is totally relevant
+
+This rating value is always be an integer between 1 and 5. The rating produced should be 1 or 2 or 3 or 4 or 5.
+
+question: What field did Marie Curie excel in?
+answer: Marie Curie was a Polish scientist.
+stars: 1
+
+question: Where were The Beatles formed?
+answer: The band The Beatles began their journey in London, England, and they changed the history of music.
+stars: 2
+
+question: What are the main goals of Perseverance Mars rover mission?
+answer: The Perseverance Mars rover mission focuses on searching for signs of ancient life on Mars.
+stars: 3
+
+question: What are the main components of the Mediterranean diet?
+answer: The Mediterranean diet primarily consists of fruits, vegetables, whole grains, and legumes.
+stars: 4
+
+question: What are the main attractions of the Queen's Royal Castle?
+answer: The main attractions of the Queen's Royal Castle are its expansive 500-acre grounds, extensive gardens, parks, and the historical castle itself, which dates back to the 15th century and has housed generations of royalty.
+stars: 5
+
+question: {{question}}
+answer: {{answer}}
+stars:
