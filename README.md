@@ -16,6 +16,7 @@ This repository contains [Demo Notebooks](./demo_notebooks/) and accompanying [s
 - **Demo Notebooks:** Step-by-Step interactive walkthroughs of various eval techniques
   - 0_setup: _Environment and development setup_
   - 1_gpt_evaluation: _Evaluate Fluency, Coherence, & Relevance using GPT4_
+  - 2_gpt_eval_benchmark: _Compare GPT graded Coherence to human analysis. Utilize new prompting strategies for evaluation_
 - **Source Code:** Reference code to go along with each notebook demo.
 
 
