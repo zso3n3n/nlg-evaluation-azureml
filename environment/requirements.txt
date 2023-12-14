@@ -8,3 +8,5 @@ matplotlib
 plotly
 python-dotenv
 keyrings.alt
+nbformat
+plotly

@@ -1,0 +1,98 @@
+inputs:
+  response:
+    type: string
+    default: "The capital of the United States of America is Washingotn D.C. The
+      Bald Eagle is the national bird of the United States.  North America is a
+      continent in the Northern Hemisphere. "
+  expert_annotations:
+    type: list
+    default:
+    - coherence: 1
+      consistency: 5
+      fluency: 5
+      relevance: 2
+    - coherence: 5
+      consistency: 5
+      fluency: 5
+      relevance: 3
+    - coherence: 1
+      consistency: 5
+      fluency: 5
+      relevance: 3
+  turker_annotations:
+    type: list
+    default:
+    - coherence: 2
+      consistency: 2
+      fluency: 1
+      relevance: 2
+    - coherence: 5
+      consistency: 4
+      fluency: 5
+      relevance: 3
+    - coherence: 4
+      consistency: 1
+      fluency: 5
+      relevance: 1
+    - coherence: 3
+      consistency: 4
+      fluency: 4
+      relevance: 3
+    - coherence: 4
+      consistency: 4
+      fluency: 4
+      relevance: 4
+outputs:
+  output:
+    type: string
+    reference: ${concat_scores.output}
+nodes:
+- name: coherence_llm
+  type: llm
+  source:
+    type: code
+    path: ../../components/coherence.jinja2
+  inputs:
+    deployment_name: aoai-gpt4
+    max_tokens: 50
+    answer: ${inputs.response}
+  connection: aoai-connection
+  api: chat
+- name: coherence_w_emotion_llm
+  type: llm
+  source:
+    type: code
+    path: ../../components/coherence_with_emotion.jinja2
+  inputs:
+    deployment_name: aoai-gpt4
+    temperature: 0
+    answer: ${inputs.response}
+    max_tokens: 50
+  connection: aoai-connection
+  api: chat
+- name: process_annotations
+  type: python
+  source:
+    type: code
+    path: process_annotations.py
+  inputs:
+    expert: ${inputs.expert_annotations}
+    turker: ${inputs.turker_annotations}
+- name: concat_scores
+  type: python
+  source:
+    type: code
+    path: concat_scores.py
+  inputs:
+    coherence: ${coherence_llm.output}
+    response: ${inputs.response}
+    human_coherence: ${process_annotations.output}
+    coherence_w_emotion: ${coherence_w_emotion_llm.output}
+- name: write_results
+  type: python
+  source:
+    type: code
+    path: write_results.py
+  inputs:
+    results: ${concat_scores.output}
+  aggregation: true
