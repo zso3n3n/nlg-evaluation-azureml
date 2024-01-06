@@ -8,9 +8,12 @@ inputs:
     default: How to use SDK V2?
     is_chat_input: false
 outputs:
-  output:
+  answer:
     type: string
     reference: ${answer_the_question_with_context.output}
+  context:
+    type: string
+    reference: ${generate_prompt_context.output}
 nodes:
 - name: embed_the_question
   type: python
