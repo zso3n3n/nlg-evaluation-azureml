@@ -1,0 +1,21 @@
+embeddings:
+  api_base: https://eastus.api.cognitive.microsoft.com/
+  api_type: azure
+  api_version: 2023-03-15-preview
+  batch_size: 1
+  connection:
+    key: aether-copilot-openai-key
+    resource_group: aether1p-workspace-dev
+    subscription: e75c95f3-27b4-410f-a40e-2b9153a807dd
+    workspace: aether1p-dev
+  connection_type: workspace_keyvault
+  deployment: text-embedding-ada-002
+  dimension: 1536
+  endpoint: embedding-store-demo
+  kind: open_ai
+  model: text-embedding-ada-002
+  schema_version: '2'
+index:
+  engine: langchain.vectorstores.FAISS
+  kind: faiss
+  method: FlatL2
