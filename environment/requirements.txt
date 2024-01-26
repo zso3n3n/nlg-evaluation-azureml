@@ -1,5 +1,6 @@
 promptflow 
 promptflow-tools
+promptflow-vectordb
 azure-ai-ml
 azure-ai-contentsafety
 pandas
@@ -10,3 +11,4 @@ python-dotenv
 keyrings.alt
 nbformat
 plotly
+bs4
