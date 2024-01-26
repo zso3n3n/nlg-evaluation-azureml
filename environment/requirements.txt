@@ -11,3 +11,4 @@ python-dotenv
 keyrings.alt
 nbformat
 plotly
+bs4
