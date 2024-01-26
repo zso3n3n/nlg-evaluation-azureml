@@ -3,7 +3,7 @@ name: Chat with Wikipedia
 environment:
   python_requirements_txt: requirements.txt
 inputs:
-  question:
+  input:
     type: string
     default: What are some tourist attractions in Chicago, IL?
     is_chat_input: true
@@ -28,7 +28,7 @@ nodes:
     max_tokens: 100
     presence_penalty: 0
     frequency_penalty: 0
-    question: ${inputs.question}
+    question: ${inputs.input}
   provider: AzureOpenAI
   connection: aoai-connection
   api: chat
@@ -77,7 +77,7 @@ nodes:
     top_p: 1
     presence_penalty: 0
     frequency_penalty: 0
-    question: ${inputs.question}
+    question: ${inputs.input}
     contexts: ${process_search_result.output}
     max_tokens: 100
   provider: AzureOpenAI
