@@ -18,6 +18,8 @@ This repository contains [Demo Notebooks](./demo_notebooks/) and accompanying [s
   - 0_setup: _Environment and development setup_
   - 1_gpt_evaluation: _Evaluate Fluency, Coherence, & Relevance using GPT4_
   - 2_gpt_eval_benchmark: _Compare GPT graded Coherence to human analysis. Utilize new prompting strategies for evaluation_
+  - 3_rag_evaluation: _Evaluate the quality of Context against both Question and Answer using GPT based Groundedness and embedding cosine similarity_
+  - 4_RAGAS: _Evaluate RAG based NLG using the [RAGAS](https://github.com/explodinggradients/ragas) framework_
 - **Source Code:** Reference code to go along with each notebook demo.
 
 
