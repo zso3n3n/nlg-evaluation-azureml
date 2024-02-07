@@ -1,4 +1,4 @@
-name: llm_eval
+name: nlg_eval
   - conda-forge
   - defaults
   - jupyter

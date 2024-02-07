@@ -19,7 +19,7 @@ nodes:
     type: code
     path: simple_chat_prompt.jinja2
   inputs:
-    deployment_name: aoai-gpt4
+    deployment_name: aoai-gpt35t
     max_tokens: 100
     temperature: 0
     top_p: 1

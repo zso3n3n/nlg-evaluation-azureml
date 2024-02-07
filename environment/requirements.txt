@@ -12,3 +12,4 @@ keyrings.alt
 nbformat
 plotly
 bs4
+ragas
