@@ -8,8 +8,13 @@ numpy
 matplotlib
 plotly
 python-dotenv
+ipykernel
 keyrings.alt
 nbformat
 plotly
 bs4
+tqdm
+ipywidgets
 ragas
+datasets
+langchain-openai
