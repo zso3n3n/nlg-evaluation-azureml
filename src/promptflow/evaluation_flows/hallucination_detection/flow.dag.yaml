@@ -1,0 +1,123 @@
+inputs:
+  response:
+    type: string
+    default: "To use the Azure Machine Learning Python SDK v2, you first need to
+      install it. You can do this in two ways:\\n\\n1. Create a compute
+      instance, which automatically installs the SDK and is pre-configured for
+      ML workflows. For more information, see the guide on how to create and
+      manage an Azure Machine Learning compute instance.\\n\\n2. Use the
+      following commands to install Azure ML Python SDK v2:\\n   * Uninstall
+      previous preview version:\\n   ```python\\n   pip uninstall
+      azure-ai-ml\\n   ```\\n   * Install the Azure ML Python SDK
+      v2:\\n   ```python\\n   pip install azure-ai-ml\\n   ```\\n\\nAfter
+      installation, you can use the SDK to train computer vision models on image
+      data with automated ML with the Azure Machine Learning CLI extension v2 or
+      the Azure Machine Learning Python SDK v2 (Source:
+      https://github.com/prakharg-msft/azureml-tutorials/blob/main//how-to-auto\
+      -train-image-models.md)."
+  question:
+    type: string
+    default: How do I use the Python v2 Azure SDK?
+  context:
+    type: string
+    default: "An Azure Machine Learning workspace. To create the workspace, see
+      Create workspace resources.  The Azure Machine Learning Python SDK v2
+      installed.  To install the SDK you can either,  Create a compute instance,
+      which automatically installs the SDK and is pre-configured for ML
+      workflows. For more information, see Create and manage an Azure Machine
+      Learning compute instance.  Use the following commands to install Azure ML
+      Python SDK v2:  Uninstall previous preview version: pip uninstall
+      azure-ai-ml Install the Azure ML Python SDK v2: pip install azure-ai-ml."
+outputs:
+  output:
+    type: string
+    reference: ${concat_scores.output}
+nodes:
+- name: groundedness_answer
+  type: llm
+  source:
+    type: code
+    path: ../../components/groundedness_answer.jinja2
+  inputs:
+    deployment_name: aoai-gpt4
+    max_tokens: 50
+    answer: ${inputs.response}
+    context: ${inputs.context}
+  connection: aoai-connection
+  api: chat
+- name: embed_question
+  type: python
+  source:
+    type: package
+    tool: promptflow.tools.embedding.embedding
+  inputs:
+    connection: aoai-connection
+    deployment_name: aoai-ada
+    input: ${inputs.question}
+- name: embed_context
+  type: python
+  source:
+    type: package
+    tool: promptflow.tools.embedding.embedding
+  inputs:
+    connection: aoai-connection
+    deployment_name: aoai-ada
+    input: ${inputs.context}
+- name: embed_response
+  type: python
+  source:
+    type: package
+    tool: promptflow.tools.embedding.embedding
+  inputs:
+    connection: aoai-connection
+    deployment_name: aoai-ada
+    input: ${inputs.response}
+- name: groundedness_question
+  type: llm
+  source:
+    type: code
+    path: ../../components/groundedness_question.jinja2
+  inputs:
+    deployment_name: aoai-gpt4
+    max_tokens: 50
+    answer: ${inputs.response}
+    question: ${inputs.question}
+  connection: aoai-connection
+  api: chat
+- name: question_context_sim
+  type: python
+  source:
+    type: code
+    path: ../../components/cosine_similarity.py
+  inputs:
+    vectorA: ${embed_question.output}
+    vectorB: ${embed_context.output}
+- name: answer_context_sim
+  type: python
+  source:
+    type: code
+    path: ../../components/cosine_similarity.py
+  inputs:
+    vectorA: ${embed_response.output}
+    vectorB: ${embed_context.output}
+- name: concat_scores
+  type: python
+  source:
+    type: code
+    path: concat_scores.py
+  inputs:
+    question: ${inputs.question}
+    answer: ${inputs.response}
+    context: ${inputs.context}
+    groundedness_answer: ${groundedness_question.output}
+    goundedness_question: ${groundedness_answer.output}
+    question_context_sim: ${question_context_sim.output}
+    answer_context_sim: ${answer_context_sim.output}
+- name: write_results
+  type: python
+  source:
+    type: code
+    path: write_results.py
+  inputs:
+    results: ${concat_scores.output}
+  aggregation: true
