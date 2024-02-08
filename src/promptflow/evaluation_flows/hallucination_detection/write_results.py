@@ -8,7 +8,7 @@ import json
 @tool
 def write_results(results: List[dict]) -> bool:
 
-   with open ('../../../../data/outputs/rag_eval_results.json', 'w') as fout:
+   with open ('../../../../data/outputs/hallucination_detection.json', 'w') as fout:
       json.dump(results, fout)
 
    return 0
