@@ -20,3 +20,4 @@ datasets
 langchain-openai
 selfcheckgpt
 sentence-transformers
+torch
