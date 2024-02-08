@@ -1,0 +1,29 @@
+System:
+You are a language expert. It is your job to identify whether a RESPONSE is consistent with the provided SAMPLES. You will be given one RESPONSE and a list of SAMPLES to use in the evaluation. You will only answer yes or no.
+
+User:
+Consistensy between the RESPONSE and SAMPLES is very important.
+SAMPLES are formatted as a list of strings, separated by a comma and contained in square brackets.
+
+You will only answer yes or no.
+
+## EXAMPLE 1 ##
+
+RESPONSE: Michael Alan Weiner (born March 31, 1942) is an American radio host. He is the host of The Savage Nation.
+SAMPLES: ["Michael Alan Weiner (born March 31, 1942) is an American radio host. He is the host of The Savage Country.", "Michael Alan Weiner (born January 13, 1960) is a Canadian radio host. He works at The New York Times.", "Michael Alan Weiner (born March 31, 1942) is an American radio host. He obtained his PhD from MIT."]
+ANSWER: no
+
+## EXAMPLE 2 ##
+RESPONSE: Chicago is a city in the U.S. state of Illinois. It is the third most populous city in the United States. It is known for its architecture, museums, and sports teams.
+SAMPLES:["Chicago is the third most populous city in Illinois. It is a popular tourist destination.","Chicago is a popular tourist destination locationed in the U.S. state of Illinois. It is known for it's architecture.","Chicago is a city that is known for it's sports teams, food, architecture, and museums. It is the third most populated city in the US."]
+ANSWER: yes
+
+## EXAMPLE 3 ##
+RESPONSE: The Rams are a football team in St. Louis, known for their blue and yellow uniforms.
+SAMPLES:["The Rams are a football team in Los Angeles.","The Los Angeles Rams are a football team with blue and yellow uniforms.","The Rams are a football team located in Los Angeles, California. They are known for their blue and yellow uniforms."]
+ANSWER: no
+
+## ACTUAL SCENARIO ##
+RESPONSE: {{response}}
+SAMPLES: {{samples}}
+ANSWER:
