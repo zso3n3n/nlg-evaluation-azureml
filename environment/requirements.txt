@@ -18,3 +18,5 @@ ipywidgets
 ragas
 datasets
 langchain-openai
+selfcheckgpt
+sentence-transformers
