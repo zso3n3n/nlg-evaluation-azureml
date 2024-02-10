@@ -1,21 +1,36 @@
-from sentence_transformers import CrossEncoder
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+import torch
 from typing import List
 from promptflow import tool
+import numpy as np
 
-global nli_contradiction_model
-nli_contradiction_model = CrossEncoder('cross-encoder/nli-deberta-v3-base')
+# TODO - this is the easiest implementation of nli_contradiction score. But it crashes the kernel every time...
 
-# TODO - implement nli_contradiction outside of the SelfCheck GPT framework
+
+global model
+model = AutoModelForSequenceClassification.from_pretrained('cross-encoder/nli-deberta-v3-small')
+
+global tokenizer
+tokenize = AutoTokenizer.from_pretrained('cross-encoder/nli-deberta-v3-small', use_fast=False)
 
 @tool
-def compute_metric(context: str, response: str) -> List:
-    
-    nli_scores = nli_contradiction_model.predict([context, response])
-    scores = nli_contradiction_model.predict([('A man is eating pizza', 'A man eats something'), ('A black race car starts up in front of a crowd of people.', 'A man is driving down a lonely road.')])
+def compute_metric(context: str, response: str) -> int:
 
-    print(nli_scores)
-    print(scores)
-    return
+    features = tokenizer([response],[context],  padding=False, truncation=False, return_tensors="pt")
+
+    model.eval()
+    with torch.no_grad():
+        scores = model(**features).logits
+        # print(scores)
+
+    # the nli-deberta-v3-base model outputs 3 scores in a list. The index of the list represents the following:
+    # 0: contradiction, 1: entailment, 2: neutral
+    # The maximum score is the model's prediction, we use the argmax function to get the index of the maximum score
+    result = np.argmax(scores)
+    if result == 0:
+        return 1
+    else:
+        return 0
 
 # Unit test
 if __name__ == "__main__":
