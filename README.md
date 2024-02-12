@@ -19,6 +19,7 @@ This repository contains [Demo Notebooks](./demo_notebooks/) and accompanying [s
   - 2_gpt_eval_benchmark: _Compare GPT graded Coherence to human analysis. Test new prompts for evaluation_
   - 3_rag_evaluation: _Evaluate the quality of Context against both Question and Answer using GPT based Groundedness and embedding cosine similarity_
   - 4_RAGAS: _Evaluate RAG based NLG using the [RAGAS](https://github.com/explodinggradients/ragas) framework_
+  - 5_hallucination_detection: _Explore methods for inline hallucination detection_
 - **Source Code:** Reference source code to go along with each notebook demo.
 
 
