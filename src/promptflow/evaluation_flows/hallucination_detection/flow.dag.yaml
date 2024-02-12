@@ -1,0 +1,96 @@
+inputs:
+  response:
+    type: string
+    default: Edison invented electricity
+  context:
+    type: string
+    default: Faraday discovered electricity
+  human_label:
+    type: int
+    default: 1
+outputs:
+  output:
+    type: string
+    reference: ${concat_scores.output}
+nodes:
+- name: hhem
+  type: python
+  source:
+    type: code
+    path: ../../components/hhem.py
+  inputs:
+    context: ${inputs.context}
+    response: ${inputs.response}
+- name: chainpoll1
+  type: llm
+  source:
+    type: code
+    path: ../../components/chain_poll_prompt.jinja2
+  inputs:
+    deployment_name: aoai-gpt4
+    max_tokens: 10
+    context: ${inputs.context}
+    response: ${inputs.response}
+  connection: aoai-connection
+  api: chat
+- name: chainpoll2
+  type: llm
+  source:
+    type: code
+    path: ../../components/chain_poll_prompt.jinja2
+  inputs:
+    deployment_name: aoai-gpt4
+    max_tokens: 10
+    context: ${inputs.context}
+    response: ${inputs.response}
+  connection: aoai-connection
+  api: chat
+- name: chainpoll3
+  type: llm
+  source:
+    type: code
+    path: ../../components/chain_poll_prompt.jinja2
+  inputs:
+    deployment_name: aoai-gpt4
+    max_tokens: 10
+    context: ${inputs.context}
+    response: ${inputs.response}
+  connection: aoai-connection
+  api: chat
+- name: process_chainpoll
+  type: python
+  source:
+    type: code
+    path: ../../components/chain_poll_post_process.py
+  inputs:
+    cp1: ${chainpoll1.output}
+    cp2: ${chainpoll2.output}
+    cp3: ${chainpoll3.output}
+- name: daberta_nli_contradiction
+  type: python
+  source:
+    type: code
+    path: ../../components/nli_contradiction_api.py
+  inputs:
+    response: ${inputs.response}
+    context: ${inputs.context}
+- name: concat_scores
+  type: python
+  source:
+    type: code
+    path: concat_scores.py
+  inputs:
+    context: ${inputs.context}
+    response: ${inputs.response}
+    human_label: ${inputs.human_label}
+    hhem_score: ${hhem.output}
+    chain_poll_score: ${process_chainpoll.output}
+    nli_score: ${daberta_nli_contradiction.output}
+- name: write_results
+  type: python
+  source:
+    type: code
+    path: write_results.py
+  inputs:
+    results: ${concat_scores.output}
+  aggregation: true
