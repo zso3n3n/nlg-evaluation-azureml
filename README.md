@@ -8,7 +8,7 @@ The majority of businesses are not creating foundational models from scratch. In
 
 Common evaulation frameworks such as MMLU, L-eval, and HellaSwag are great for foundational model analysis, but do not cover evaluation of adapted mode or chatbot outputs after Prompting, RAG or Fine-Tuning.  
 
-The goals of these labs is to provide a framework to enable you to answer the question: _Is my model safe, effective, and accurate enough to deploy to Production?_
+The goals of these labs is to provide a framework to enable you to answer the question: **_Is my model safe, effective, and accurate enough to deploy to Production?_**
 
 ### **Getting Started**  
 This repository contains [Demo Notebooks](./demo_notebooks/) and accompanying [source code](./src/) for vairous evaluation scenarios.  
